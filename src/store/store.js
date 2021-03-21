@@ -10,7 +10,7 @@ const store = createStore({
     },
     actions: {
         getHolidays({commit}, year) {
-            return axios.get(`http://nolaborables.com.ar/api/v2/feriados/${year}`).then((response) => {
+            return axios.get(`https://nolaborables.com.ar/api/v2/feriados/${year}`).then((response) => {
                 commit('SET_HOLIDAYS', Object.freeze(response.data))
             })
         }
