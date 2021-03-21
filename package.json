@@ -1,16 +1,19 @@
 {
   "name": "calender",
   "version": "0.0.0",
+  "author": "Gonzalo Nieto",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "@popperjs/core": "^2.9.1",
+    "axios": "^0.21.1",
     "v-calendar": "^3.0.0-alpha.3",
-    "vue": "^3.0.4"
+    "vue": "^3.0.4",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@popperjs/core": "^2.9.1",
     "vite": "^1.0.0-rc.13",
     "@vue/compiler-sfc": "^3.0.4"
   }

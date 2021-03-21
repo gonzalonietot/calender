@@ -1,10 +1,10 @@
-import { createApp } from 'vue'
-import { SetupCalendar, Calendar, DatePicker } from 'v-calendar';
+import { createApp } from 'vue';
+import VCalendar from 'v-calendar';
 import App from './App.vue'
-import './index.css'
+import './index.css';
+import store from "./store/store";
 
-createApp(App)
-    .use(SetupCalendar, {})
-    .component('Calendar', Calendar)
-    .component('DatePicker', DatePicker)
-    .mount('#app')
+const app = createApp(App);
+app.use(store);
+app.use(VCalendar);
+app.mount('#app');

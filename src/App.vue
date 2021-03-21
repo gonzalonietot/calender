@@ -7,9 +7,11 @@ import Calender from './components/Calender.vue'
 
 export default {
   name: 'App',
+  data() {return{}},
   components: {
     Calender
   },
-  setup () {}
+  mounted() {},
+  setup () {},
 }
 </script>
