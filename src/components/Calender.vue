@@ -6,21 +6,20 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { mapState } from 'vuex';
+import { ref, onMounted } from 'vue';
+import { useStore } from 'vuex';
 export default {
   name: 'Calender',
-  data(){
-    return {
-      data: [],
-    }
-  },
-  computed: {
-    ...mapState(['holidays'])
-  },
-   mounted() {
-    this.$store.dispatch('getHolidays', 2021).then(() => {
-      this.data = this.holidays.map(t => ({
+  setup () {
+
+    const store = useStore();
+    const date = ref(new Date());
+    let data = ref([]);
+
+
+    onMounted(async () => {
+      await store.dispatch('getHolidays', 2021)
+      data.value = store.state.holidays.map(t => ({
         id: t.info,
         key: t.motivo,
         highlight: "red",
@@ -32,10 +31,8 @@ export default {
         }
       }))
     })
-  },
-  setup () {
-    const date = ref(new Date());
-    return { date }
+
+    return { date, data }
   }
 }
 </script>
